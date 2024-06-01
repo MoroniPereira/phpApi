@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->put('/consulta/{id}', [ConsultaController::cl
 Route::middleware('auth:sanctum')->delete('/consulta/{id}', [ConsultaController::class, 'deleteConsulta']);
 
 Route::middleware('auth:sanctum')->get('/notificacoes', [NotificacaoController::class, 'notification']);
+Route::middleware('auth:sanctum')->get('/notificacoe/{id}', [NotificacaoController::class, 'buscarNotification']);
 Route::middleware('auth:sanctum')->post('/notificacao', [NotificacaoController::class, 'createNotification']);
 Route::middleware('auth:sanctum')->put('/notificacao/{id}', [NotificacaoController::class, 'updateNotification']);
 Route::middleware('auth:sanctum')->delete('/notificacao/{id}', [NotificacaoController::class, 'deleteNotification']);

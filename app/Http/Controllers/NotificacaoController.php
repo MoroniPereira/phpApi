@@ -16,6 +16,15 @@ class NotificacaoController extends Controller
         return response()->json($notificacao);
     }
 
+    public function buscarNotification($id){
+        $notificacao = Notificacao::find($id);
+
+        if(!$notificacao){
+            return response()->json(['message' => 'Notificação not found'], 404);
+        }
+        return response()->json($notificacao);
+    }
+
     public function createNotification(Request $request){
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
