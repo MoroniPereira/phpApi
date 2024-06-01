@@ -43,8 +43,11 @@ class ConsultaController extends Controller
         ], 201);
     }
 
-    public function updateStatusConsulta(Request $request, $id){
+    public function updateConsulta(Request $request, $id){
         $validator = Validator::make($request->all(), [
+            'especialidade' => 'required|string|max:255',
+            'data' => 'required|date_format:d/m/Y',
+            'hora' => 'required|date_format:H:i',
             'realizada' => 'required|boolean',
         ]);
 
@@ -54,7 +57,7 @@ class ConsultaController extends Controller
 
         $consulta = Consulta::find($id);
         if (!$consulta) {
-            return response()->json(['message' => 'User not found'], 404);
+            return response()->json(['message' => 'Consulta not found'], 404);
         }
 
         $consulta->update($request->all());

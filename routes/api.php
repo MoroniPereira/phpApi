@@ -17,7 +17,7 @@ Route::middleware('auth:sanctum')->delete('/user/{id}', [UserController::class, 
 
 Route::middleware('auth:sanctum')->get('/consultas', [ConsultaController::class, 'consultas']);
 Route::middleware('auth:sanctum')->post('/consulta', [ConsultaController::class, 'registerConsulta']);
-Route::middleware('auth:sanctum')->put('/consulta/{id}', [ConsultaController::class, 'updateStatusConsulta']);
+Route::middleware('auth:sanctum')->put('/consulta/{id}', [ConsultaController::class, 'updateConsulta']);
 Route::middleware('auth:sanctum')->delete('/consulta/{id}', [ConsultaController::class, 'deleteConsulta']);
 
 Route::middleware('auth:sanctum')->get('/notificacoes', [NotificacaoController::class, 'notification']);
