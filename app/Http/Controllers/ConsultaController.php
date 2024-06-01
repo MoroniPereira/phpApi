@@ -17,6 +17,15 @@ class ConsultaController extends Controller
         return response()->json($consultas);
     }
 
+    public function buscarConsulta($id){
+        $consulta = Consulta::find($id);
+        if (!$consulta) {
+            return response()->json(['message' => 'Consulta not found'], 404);
+        }
+
+        return response()->json($consulta);
+    }
+
     public function registerConsulta(Request $request){
         $validator = Validator::make($request->all(), [
             'especialidade' => 'required|string|max:255',
